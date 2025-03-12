@@ -9,7 +9,7 @@ paths:
     get:
       tags:
         - Pets
-      operationId: app.get_pets
+      operationId: resources.get_pets
       summary: Get all pets
       parameters:
         - name: animal_type
@@ -36,7 +36,7 @@ paths:
     get:
       tags:
         - Pets
-      operationId: app.get_pet
+      operationId: resources.get_pet
       summary: Get a single pet
       parameters:
         - $ref: '#/components/parameters/pet_id'
@@ -52,7 +52,7 @@ paths:
     put:
       tags:
         - Pets
-      operationId: app.put_pet
+      operationId: resources.put_pet
       summary: Create or update a pet
       parameters:
         - $ref: '#/components/parameters/pet_id'
@@ -70,7 +70,7 @@ paths:
     delete:
       tags:
         - Pets
-      operationId: app.delete_pet
+      operationId: resources.delete_pet
       summary: Remove a pet
       parameters:
         - $ref: '#/components/parameters/pet_id'
