@@ -60,3 +60,13 @@ def delete_pet(pet_id):
         else:
             return NoContent, 404
 
+def init():
+  # Initialize the db with instances
+  pets = {
+    1: {"name": "Aldo", "animal_type": "cat"},
+    2: {"name": "Bailey", "animal_type": "dog"},
+    3: {"name": "Hugo", "animal_type": "cat"},
+  }
+  for id_, pet in pets.items():
+    put_pet(id_, pet)
+
