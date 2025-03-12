@@ -58,10 +58,10 @@ pets = {
 }
 for id_, pet in pets.items():
     put_pet(id_, pet)
+
 app = connexion.FlaskApp(__name__, specification_dir="spec")
 app.add_api("openapi.yaml")
-app.add_api("swagger.yaml")
-
 
 if __name__ == "__main__":
     app.run(port=8080, reload=False)
+
