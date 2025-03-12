@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 
 import connexion
 import orm
+import os
 from connexion import NoContent
 
 
@@ -47,8 +48,12 @@ def delete_pet(pet_id):
             return NoContent, 404
 
 logging.basicConfig(level=logging.INFO)
-db_session_factory = orm.init_db("app-sqlite.db")
-logging.info("Created or reusing file at /app/data/app-sqlite.db")
+if 'DB_FILE' in os.environ:
+  db_session_factory = orm.init_db(os.environ["DB_FILE"]) 
+  logging.info(f"Created or reusing DB file at {os.environ['DB_FILE']}")
+else:
+  db_session_factory = orm.init_db(None)
+  logging.info(f"Starting with DB in memory")
 
 # Initialize the local memory
 pets = {
@@ -64,4 +69,5 @@ app.add_api("openapi.yaml")
 
 if __name__ == "__main__":
     app.run(port=8081, reload=False)
+
 
