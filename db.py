@@ -1,4 +1,4 @@
-import logging
+import logger
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -6,8 +6,9 @@ from sqlalchemy.pool import StaticPool
 
 import orm
 
-logging.basicConfig(level=logging.INFO)
+log = logger.get_logger(__name__)
 
+# Get the base class from all resources
 Base = orm.get_base_class()
 
 def init_db(file_path: None):
@@ -18,8 +19,11 @@ def init_db(file_path: None):
     https://stackoverflow.com/questions/6519546/scoped-sessionsessionmaker-or-plain-sessionmaker-in-sqlalchemy
     """
 
+    log.debug("Bootstrapping the sqlite database...")
+
     engine = None
     if not file_path:
+        log.debug("Creating an in-memory sqlite database at 'sqlite:///:memory:'")
         engine = create_engine(
           url="sqlite:///:memory:",
           connect_args={"check_same_thread": False},
@@ -40,6 +44,8 @@ def init_db(file_path: None):
 
       file_name = os.path.basename(file_path)
     
+      log.debug("Creating an file-system sqlite database at 'sqlite:///{data_volume_dir}/{file_name}'")
+
       # Create engine with file-based SQLite
       engine = create_engine(
           url=f"sqlite:///{data_volume_dir}/{file_name}",  # Use a file path instead of :memory:
@@ -55,11 +61,9 @@ def init_db(file_path: None):
 # Singleton instance for the db_session_factory
 if 'DB_FILE' in os.environ:
   db_session_singleton = init_db(os.environ["DB_FILE"]) 
-  logging.info(f"Created or reusing DB file at {os.environ['DB_FILE']}")
 
 else:
   db_session_singleton = init_db(None)
-  logging.info(f"Starting with DB in memory")
 
 
 # Export the session factory

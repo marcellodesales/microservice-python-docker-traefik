@@ -1,9 +1,10 @@
-import logging
+import logger
 import connexion
 import resources
 import inspect
 
-logging.basicConfig(level=logging.INFO)
+log = logger.get_logger(__name__)
+log.debug("Bootstrapping the app...")
 
 app = connexion.FlaskApp(__name__, specification_dir="spec")
 app.add_api("openapi.yaml")

@@ -21,6 +21,7 @@ services:
 
     environment:
       DB_FILE: /app/data/app-sqlite.db
+      LOG_LEVEL: INFO
 
     deploy:
       replicas: 3
