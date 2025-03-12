@@ -18,7 +18,11 @@ def setup_logging():
     
     level_name = get_level_name(log_level)
     print(f"Setting up logger with level {level_name}")
-    logging.basicConfig(level=log_level, format='%(asctime)s %(levelname)s %(pathname)s:%(lineno)d:%(funcName)s %(message)s')
+
+    if level_name == "DEBUG":
+      logging.basicConfig(level=log_level, format='%(asctime)s %(levelname)s %(pathname)s:%(lineno)d:%(funcName)s %(message)s')
+    else:
+      logging.basicConfig(level=log_level, format='%(asctime)s %(levelname)s %(message)s')
 
 # Just call to setup logging before anything...
 setup_logging()

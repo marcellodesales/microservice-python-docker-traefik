@@ -53,22 +53,22 @@ WARN[0001] Found orphan containers ([sqlalchemy-traefik-1 sqlalchemy-service-1])
 [+] Running 1/0
  ✔ Container sqlalchemy-myapp-6  Recreated                                                                                                                            0.1s
 Attaching to myapp-6
-myapp-6  | 2025-03-12 17:21:24,263 db.py:22 DEBUG - Bootstrapping the sqlite database...
-myapp-6  | 2025-03-12 17:21:24,263 DEBUG /root/app/site-packages/db.py:22:init_db Bootstrapping the sqlite database...
-myapp-6  | 2025-03-12 17:21:24,265 db.py:26 DEBUG - Creating an in-memory sqlite database at 'sqlite:///:memory:'
-myapp-6  | 2025-03-12 17:21:24,265 DEBUG /root/app/site-packages/db.py:26:init_db Creating an in-memory sqlite database at 'sqlite:///:memory:'
-myapp-6  | 2025-03-12 17:21:24,278 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2699:_connection_begin_impl BEGIN (implicit)
-myapp-6  | Setting up logger with level DEBUG
-myapp-6  | 2025-03-12 17:21:24,278 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,278 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("pets")
-myapp-6  | 2025-03-12 17:21:24,278 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context PRAGMA main.table_info("pets")
-myapp-6  | 2025-03-12 17:21:24,278 INFO sqlalchemy.engine.Engine [raw sql] ()
-myapp-6  | 2025-03-12 17:21:24,278 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [raw sql] ()
-myapp-6  | 2025-03-12 17:21:24,286 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context PRAGMA temp.table_info("pets")
-myapp-6  | 2025-03-12 17:21:24,286 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("pets")
-myapp-6  | 2025-03-12 17:21:24,286 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [raw sql] ()
-myapp-6  | 2025-03-12 17:21:24,286 INFO sqlalchemy.engine.Engine [raw sql] ()
-myapp-6  | 2025-03-12 17:21:24,287 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context
+WARN[0002] Found orphan containers ([sqlalchemy-traefik-1 sqlalchemy-service-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+[+] Running 1/0
+ ✔ Container sqlalchemy-myapp-6  Recreated                                                                                                                            0.0s
+Attaching to myapp-6
+myapp-6  | Setting up logger with level INFO
+myapp-6  | 2025-03-12 17:32:54,724 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,724 INFO BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,726 INFO PRAGMA main.table_info("pets")
+myapp-6  | 2025-03-12 17:32:54,726 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("pets")
+myapp-6  | 2025-03-12 17:32:54,726 INFO sqlalchemy.engine.Engine [raw sql] ()
+myapp-6  | 2025-03-12 17:32:54,726 INFO [raw sql] ()
+myapp-6  | 2025-03-12 17:32:54,735 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("pets")
+myapp-6  | 2025-03-12 17:32:54,735 INFO sqlalchemy.engine.Engine [raw sql] ()
+myapp-6  | 2025-03-12 17:32:54,735 INFO PRAGMA temp.table_info("pets")
+myapp-6  | 2025-03-12 17:32:54,735 INFO [raw sql] ()
+myapp-6  | 2025-03-12 17:32:54,736 INFO
 myapp-6  | CREATE TABLE pets (
 myapp-6  | 	id VARCHAR(20) NOT NULL,
 myapp-6  | 	name VARCHAR(100),
@@ -78,7 +78,7 @@ myapp-6  | 	PRIMARY KEY (id)
 myapp-6  | )
 myapp-6  |
 myapp-6  |
-myapp-6  | 2025-03-12 17:21:24,287 INFO sqlalchemy.engine.Engine
+myapp-6  | 2025-03-12 17:32:54,736 INFO sqlalchemy.engine.Engine
 myapp-6  | CREATE TABLE pets (
 myapp-6  | 	id VARCHAR(20) NOT NULL,
 myapp-6  | 	name VARCHAR(100),
@@ -88,134 +88,67 @@ myapp-6  | 	PRIMARY KEY (id)
 myapp-6  | )
 myapp-6  |
 myapp-6  |
-myapp-6  | 2025-03-12 17:21:24,288 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [no key 0.00007s] ()
-myapp-6  | 2025-03-12 17:21:24,288 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
-myapp-6  | 2025-03-12 17:21:24,295 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2705:_connection_commit_impl COMMIT
-myapp-6  | 2025-03-12 17:21:24,295 INFO sqlalchemy.engine.Engine COMMIT
-myapp-6  | 2025-03-12 17:21:24,295 app.py:7 DEBUG - Bootstrapping the app...
-myapp-6  | 2025-03-12 17:21:24,295 DEBUG /root/app/site-packages/app.py:7:<module> Bootstrapping the app...
-myapp-6  | 2025-03-12 17:21:24,316 resources.py:34 DEBUG - Updating a pet with id=1
-myapp-6  | 2025-03-12 17:21:24,316 DEBUG /root/app/site-packages/resources.py:34:put_pet Updating a pet with id=1
-myapp-6  | 2025-03-12 17:21:24,317 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2699:_connection_begin_impl BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,317 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,320 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,736 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+myapp-6  | 2025-03-12 17:32:54,736 INFO [no key 0.00007s] ()
+myapp-6  | 2025-03-12 17:32:54,743 INFO sqlalchemy.engine.Engine COMMIT
+myapp-6  | 2025-03-12 17:32:54,743 INFO COMMIT
+myapp-6  | 2025-03-12 17:32:54,766 INFO BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,766 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,768 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,320 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,768 INFO SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,320 INFO sqlalchemy.engine.Engine [generated in 0.00015s] (1,)
-myapp-6  | 2025-03-12 17:21:24,320 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [generated in 0.00015s] (1,)
-myapp-6  | 2025-03-12 17:21:24,322 resources.py:43 INFO - Creating pet 1..
-myapp-6  | 2025-03-12 17:21:24,322 INFO /root/app/site-packages/resources.py:43:put_pet Creating pet 1..
-myapp-6  | 2025-03-12 17:21:24,323 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,323 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,323 INFO sqlalchemy.engine.Engine [generated in 0.00017s] (1, 'Aldo', 'cat', '2025-03-12 17:21:24.322236')
-myapp-6  | 2025-03-12 17:21:24,323 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [generated in 0.00017s] (1, 'Aldo', 'cat', '2025-03-12 17:21:24.322236')
-myapp-6  | 2025-03-12 17:21:24,324 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2705:_connection_commit_impl COMMIT
-myapp-6  | 2025-03-12 17:21:24,324 INFO sqlalchemy.engine.Engine COMMIT
-myapp-6  | 2025-03-12 17:21:24,325 resources.py:34 DEBUG - Updating a pet with id=2
-myapp-6  | 2025-03-12 17:21:24,325 DEBUG /root/app/site-packages/resources.py:34:put_pet Updating a pet with id=2
-myapp-6  | 2025-03-12 17:21:24,325 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2699:_connection_begin_impl BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,325 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,325 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,768 INFO sqlalchemy.engine.Engine [generated in 0.00016s] (1,)
+myapp-6  | 2025-03-12 17:32:54,768 INFO [generated in 0.00016s] (1,)
+myapp-6  | 2025-03-12 17:32:54,770 resources.py:43 INFO - Creating pet 1..
+myapp-6  | 2025-03-12 17:32:54,770 INFO Creating pet 1..
+myapp-6  | 2025-03-12 17:32:54,771 INFO INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,771 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,771 INFO sqlalchemy.engine.Engine [generated in 0.00016s] (1, 'Aldo', 'cat', '2025-03-12 17:32:54.770459')
+myapp-6  | 2025-03-12 17:32:54,771 INFO [generated in 0.00016s] (1, 'Aldo', 'cat', '2025-03-12 17:32:54.770459')
+myapp-6  | 2025-03-12 17:32:54,773 INFO COMMIT
+myapp-6  | 2025-03-12 17:32:54,773 INFO sqlalchemy.engine.Engine COMMIT
+myapp-6  | 2025-03-12 17:32:54,773 INFO BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,773 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,773 INFO SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,325 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,773 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,325 INFO sqlalchemy.engine.Engine [cached since 0.005352s ago] (2,)
-myapp-6  | 2025-03-12 17:21:24,325 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [cached since 0.005352s ago] (2,)
-myapp-6  | 2025-03-12 17:21:24,325 resources.py:43 INFO - Creating pet 2..
-myapp-6  | 2025-03-12 17:21:24,325 INFO /root/app/site-packages/resources.py:43:put_pet Creating pet 2..
-myapp-6  | 2025-03-12 17:21:24,326 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,326 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,326 INFO sqlalchemy.engine.Engine [cached since 0.002932s ago] (2, 'Bailey', 'dog', '2025-03-12 17:21:24.326017')
-myapp-6  | 2025-03-12 17:21:24,326 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [cached since 0.002932s ago] (2, 'Bailey', 'dog', '2025-03-12 17:21:24.326017')
-myapp-6  | 2025-03-12 17:21:24,326 INFO sqlalchemy.engine.Engine COMMIT
-myapp-6  | 2025-03-12 17:21:24,326 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2705:_connection_commit_impl COMMIT
-myapp-6  | 2025-03-12 17:21:24,326 resources.py:34 DEBUG - Updating a pet with id=3
-myapp-6  | 2025-03-12 17:21:24,326 DEBUG /root/app/site-packages/resources.py:34:put_pet Updating a pet with id=3
-myapp-6  | 2025-03-12 17:21:24,326 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2699:_connection_begin_impl BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,326 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-myapp-6  | 2025-03-12 17:21:24,327 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,773 INFO sqlalchemy.engine.Engine [cached since 0.00498s ago] (2,)
+myapp-6  | 2025-03-12 17:32:54,773 INFO [cached since 0.00498s ago] (2,)
+myapp-6  | 2025-03-12 17:32:54,774 resources.py:43 INFO - Creating pet 2..
+myapp-6  | 2025-03-12 17:32:54,774 INFO Creating pet 2..
+myapp-6  | 2025-03-12 17:32:54,774 INFO INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,774 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,774 INFO sqlalchemy.engine.Engine [cached since 0.002861s ago] (2, 'Bailey', 'dog', '2025-03-12 17:32:54.774116')
+myapp-6  | 2025-03-12 17:32:54,774 INFO [cached since 0.002861s ago] (2, 'Bailey', 'dog', '2025-03-12 17:32:54.774116')
+myapp-6  | 2025-03-12 17:32:54,774 INFO COMMIT
+myapp-6  | 2025-03-12 17:32:54,774 INFO sqlalchemy.engine.Engine COMMIT
+myapp-6  | 2025-03-12 17:32:54,774 INFO BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,774 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+myapp-6  | 2025-03-12 17:32:54,775 INFO SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,327 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
+myapp-6  | 2025-03-12 17:32:54,775 INFO sqlalchemy.engine.Engine SELECT pets.id AS pets_id, pets.name AS pets_name, pets.animal_type AS pets_animal_type, pets.created AS pets_created
 myapp-6  | FROM pets
 myapp-6  | WHERE pets.id = ?
-myapp-6  | 2025-03-12 17:21:24,327 INFO sqlalchemy.engine.Engine [cached since 0.006813s ago] (3,)
-myapp-6  | 2025-03-12 17:21:24,327 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [cached since 0.006813s ago] (3,)
-myapp-6  | 2025-03-12 17:21:24,327 resources.py:43 INFO - Creating pet 3..
-myapp-6  | 2025-03-12 17:21:24,327 INFO /root/app/site-packages/resources.py:43:put_pet Creating pet 3..
-myapp-6  | 2025-03-12 17:21:24,327 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,327 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
-myapp-6  | 2025-03-12 17:21:24,327 INFO sqlalchemy.engine.Engine [cached since 0.004122s ago] (3, 'Hugo', 'cat', '2025-03-12 17:21:24.327255')
-myapp-6  | 2025-03-12 17:21:24,327 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:1843:_execute_context [cached since 0.004122s ago] (3, 'Hugo', 'cat', '2025-03-12 17:21:24.327255')
-myapp-6  | 2025-03-12 17:21:24,327 INFO /venv/lib/python3.13/site-packages/sqlalchemy/engine/base.py:2705:_connection_commit_impl COMMIT
-myapp-6  | 2025-03-12 17:21:24,327 INFO sqlalchemy.engine.Engine COMMIT
+myapp-6  | 2025-03-12 17:32:54,775 INFO sqlalchemy.engine.Engine [cached since 0.006511s ago] (3,)
+myapp-6  | 2025-03-12 17:32:54,775 INFO [cached since 0.006511s ago] (3,)
+myapp-6  | 2025-03-12 17:32:54,775 resources.py:43 INFO - Creating pet 3..
+myapp-6  | 2025-03-12 17:32:54,775 INFO Creating pet 3..
+myapp-6  | 2025-03-12 17:32:54,775 INFO INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,775 INFO sqlalchemy.engine.Engine INSERT INTO pets (id, name, animal_type, created) VALUES (?, ?, ?, ?)
+myapp-6  | 2025-03-12 17:32:54,775 INFO sqlalchemy.engine.Engine [cached since 0.004057s ago] (3, 'Hugo', 'cat', '2025-03-12 17:32:54.775348')
+myapp-6  | 2025-03-12 17:32:54,775 INFO [cached since 0.004057s ago] (3, 'Hugo', 'cat', '2025-03-12 17:32:54.775348')
+myapp-6  | 2025-03-12 17:32:54,775 INFO sqlalchemy.engine.Engine COMMIT
+myapp-6  | 2025-03-12 17:32:54,775 INFO COMMIT
 myapp-6  | INFO:     Started server process [1]
 myapp-6  | INFO:     Waiting for application startup.
-myapp-6  | 2025-03-12 17:21:24,329 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/abstract.py:89:add_paths Adding /openapi/pets...
-myapp-6  | 2025-03-12 17:21:24,329 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,329 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,329 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/abstract.py:89:add_paths Adding /openapi/pets/{pet_id}...
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,330 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,332 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/request_validation.py:159:__init__ Strict Request Validation: None
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/security.py:58:_get_verification_fn ... Security: None
-myapp-6  | 2025-03-12 17:21:24,333 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/security.py:58:_get_verification_fn ... Security: None
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/security.py:58:_get_verification_fn ... Security: None
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/security.py:58:_get_verification_fn ... Security: None
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/abstract.py:89:add_paths Adding /openapi/pets...
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/abstract.py:89:add_paths Adding /openapi/pets/{pet_id}...
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,334 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: ['application/json']
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:100:__init__ consumes: []
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/operations/openapi.py:101:__init__ produces: []
-myapp-6  | 2025-03-12 17:21:24,335 INFO /venv/lib/python3.13/site-packages/connexion/middleware/swagger_ui.py:80:add_openapi_json Adding spec json: /openapi/openapi.json
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/swagger_ui.py:98:add_openapi_yaml Adding spec yaml: /openapi//openapi.yaml
-myapp-6  | 2025-03-12 17:21:24,335 DEBUG /venv/lib/python3.13/site-packages/connexion/middleware/swagger_ui.py:127:add_swagger_ui Adding swagger-ui: /openapi/ui/
+myapp-6  | 2025-03-12 17:32:54,780 INFO Adding spec json: /openapi/openapi.json
 myapp-6  | INFO:     Application startup complete.
 myapp-6  | INFO:     Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)
 ```
