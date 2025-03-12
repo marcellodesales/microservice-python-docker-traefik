@@ -7,33 +7,13 @@ services:
   
   myapp:
     image: marcellodesales/my-python-service
+
     platform: linux/x86_64
     build:
       context: .
       target: service
-    expose:
-      - "8081"
-    volumes:
-      - ./data:/app/data
 
-    restart: unless-stopped
-    labels:
-      # Settings for Traefik (172.111.111.111 is the global IP of the host)
-      - "traefik.enable=true"
-      - "traefik.http.routers.myapp.rule=Host(`localhost`) || Host(`127.0.0.1`) || Host(`172.111.111.111`) || Host(`your.example.com`)"
-      - "traefik.http.routers.myapp.entrypoints=web"
-
-  traefik:
-    image: traefik:latest
-    command:
-      - "--log.level=DEBUG"
-      - "--api.insecure=false"
-      - "--api.dashboard=false"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:8081"
     ports:
-      - "8080:8081"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "8081:8081"
+
     restart: unless-stopped
