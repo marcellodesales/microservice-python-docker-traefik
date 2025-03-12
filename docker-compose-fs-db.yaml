@@ -1,22 +1,30 @@
 ####
-#### Starts a single service with a DB in memory
+#### Starts a load-balanced service with a shared DB in fs
 ####
-#### docker compose up --build
+#### docker compose -f docker-compose-fs-db.yaml up --build --scale myapp=3
 ####
 services:
   
   myapp:
-    image: marcellodesales/my-python-service
+    image: marcellodesales/myapp
     platform: linux/x86_64
     build:
       context: .
       target: service
+
     expose:
       - "8081"
+    restart: unless-stopped
+
     volumes:
       - ./data:/app/data
 
-    restart: unless-stopped
+    environment:
+      DB_FILE: /app/data/app-sqlite.db
+
+    deploy:
+      replicas: 3
+
     labels:
       # Settings for Traefik (172.111.111.111 is the global IP of the host)
       - "traefik.enable=true"
@@ -34,6 +42,6 @@ services:
       - "--entrypoints.web.address=:8081"
     ports:
       - "8080:8081"
+    restart: unless-stopped
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    restart: unless-stopped
