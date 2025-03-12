@@ -26,6 +26,6 @@ USER root
 
 VOLUME /app/data
 
-ENTRYPOINT ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+ENTRYPOINT ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8081"]
 
 

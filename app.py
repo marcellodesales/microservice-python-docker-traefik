@@ -63,5 +63,5 @@ app = connexion.FlaskApp(__name__, specification_dir="spec")
 app.add_api("openapi.yaml")
 
 if __name__ == "__main__":
-    app.run(port=8080, reload=False)
+    app.run(port=8081, reload=False)
 
