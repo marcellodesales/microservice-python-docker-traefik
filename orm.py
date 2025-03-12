@@ -24,18 +24,34 @@ class Pet(Base):
     def dump(self):
         return {k: v for k, v in vars(self).items() if not k.startswith("_")}
 
-
-def init_db():
+def init_db(file_path: False):
     """
     Initialize the database and return a sessionmaker object.
     `check_same_thread` and `StaticPool` are helpful for unit testing of
     in-memory sqlite databases; they should not be used in production.
     https://stackoverflow.com/questions/6519546/scoped-sessionsessionmaker-or-plain-sessionmaker-in-sqlalchemy
     """
-    engine = create_engine(
-        url="sqlite:///:memory:",
-        connect_args={"check_same_thread": False},
-        poolclass=StaticPool,
-    )
+
+    engine = None
+    if not file_path:
+        engine = create_engine(
+          url="sqlite:///:memory:",
+          connect_args={"check_same_thread": False},
+          poolclass=StaticPool,
+        )
+
+    else:
+
+      # Create the directory for the database file if it doesn't exist
+      #import os
+      #os.makedirs("/app/data", exist_ok=True)
+    
+      # Create engine with file-based SQLite
+      engine = create_engine(
+          url=f"sqlite:////app/data/{file_path}",  # Use a file path instead of :memory:
+          connect_args={"check_same_thread": False},  # Can keep this for dev purposes
+      )
+    
+    # Create all tables
     Base.metadata.create_all(bind=engine)
     return sessionmaker(autocommit=False, autoflush=False, bind=engine)

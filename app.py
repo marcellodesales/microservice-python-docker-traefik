@@ -46,9 +46,11 @@ def delete_pet(pet_id):
         else:
             return NoContent, 404
 
-
 logging.basicConfig(level=logging.INFO)
-db_session_factory = orm.init_db()
+db_session_factory = orm.init_db("app-sqlite.db")
+logging.info("Created or reusing file at /app/data/app-sqlite.db")
+
+# Initialize the local memory
 pets = {
     1: {"name": "Aldo", "animal_type": "cat"},
     2: {"name": "Bailey", "animal_type": "dog"},
